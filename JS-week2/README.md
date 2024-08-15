@@ -2,15 +2,20 @@
 
 ## Table of Contents
 
+- [Topics](#Topics)
 - [Technologies](#technologies)
 - [Time](#time)
 - [Tips](#tips)
 - [Githubtips](#githubtips)
 - [Explanations](#explanations)
 
+## Topics 
+classWork.js
+- function 
+- synchronous and asynchronous code
+- I/O operations
+- CPU bound tasks   
 
-### Time
-4.5 hours
 ## Technologies 
 - Javascript
 
