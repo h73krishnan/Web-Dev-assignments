@@ -68,17 +68,78 @@
 // });
 
 
-// READ FILE ASYNC
+// // READ FILE ASYNC
 
-const fs = require('fs');
+// const fs = require('fs');
 
-const print =  (err, data) => {
-    console.log(data);
+// const print =  (err, data) => {
+//     console.log(data);
+// }
+
+// fs.readFile("a.txt", "utf-8", print);
+
+// fs.readFile("b.txt", "utf-8", print); 
+
+// console.log("Done");
+
+// // ERROR FIRST FUNCTIONS HANDLING NO VALUE INPUT
+
+// function print(value){
+
+//     if(!value){
+//         // create and throw error
+//         throw new Error("value is required!");
+//     }
+//     return 'Value received, ${value}';
+// }
+
+// try{
+//     print(); // ERROR
+// }
+// catch(err){ // error handling
+//     console.error(error.message) // output: "value is required!"
+// }
+
+// // ERROR LOGIC
+
+// const fs = require('fs');
+
+// function print(err, data){
+//    if(err){
+//     console.log("File not found"); 
+//    } else {
+//     console.log(data);
+//    }
+
+// }
+
+// fs.readFile("a.txt", "utf-8", print);
+
+// setTimeout
+
+console.log("Hi!");
+
+function timeout(){
+    console.log("Click the button!")
 }
 
-const contents1 = fs.readFile("a.txt", "utf-8", print);
 
-const contents2 = fs.readFile("b.txt", "utf-8", print); 
+setTimeout(timeout, 5000); 
+
+console.log("Welcome to loupe.");
+
+console.time('loop');
+
+let c = 0;
+
+for(let i = 0; i < 10000000000; i++){
+    c = c + i;
+}
+console.timeEnd('loop');
+console.log("Expensive operation done");
+
+
+
 
 
 
