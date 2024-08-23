@@ -209,5 +209,91 @@
 // fs.readFile("a.txt", "utf-8", read);
 
 
-// 
+// // CASE 1: ASYNC PROMISED READFILE
+
+
+// const fs = require("fs").promises;
+
+// async function read(){
+//     const data = await fs.readFile("a.txt", "utf-8");
+
+//     console.log(data);
+// }
+
+// read();
+
+// // CASE 2: .then PROMISED READFILE
+// const fs = require("fs");
+
+// const myPromise = new Promise((resolve) =>{
+//     const data = fs.readFile("a.txt", "utf-8", (err, data) => {
+//         resolve(data);
+//     });
+// })
+
+// myPromise.then((data)=>{
+//     console.log(data);
+// })
+
+
+// // CASE 3: ASYNC PROMISED READFILE WITH ERROR
+
+
+// const fs = require("fs").promises;
+
+// async function read(){
+//     try{
+//         const data = await fs.readFile("a.txt", "utf-8");
+//         console.log("here")
+
+//         console.log(data);
+//     }
+//     catch(err){
+//         console.log("err, ${err}")
+//     }
+// }
+
+// read();
+
+// // CASE 4: .then PROMISED READFILE WITH ERROR
+// const { rejects } = require("assert");
+// const fs = require("fs");
+
+// const myPromise = new Promise((resolve, reject) =>{
+//     const data = fs.readFile("a.txt", "utf-8", (err, data) => {
+//         if(err){
+//             reject(err);
+//         }
+//         else resolve(data);
+//     });
+// })
+
+// myPromise.then((data)=>{
+//     console.log(data);
+
+// }).catch((err) => {
+//     console.log("err", err);
+// });
+
+
+
+// // CASE 1: PROMISED ASYNC AWAIT SETTIMEOUT
+
+// const timeout = async () =>{
+//     await new Promise((resolve) => setTimeout(resolve, 2000));
+
+//     console.log("Timeout finished!")
+// }
+
+// timeout();
+
+
+// CASE 2: PROMISED .then setTimeout
+
+new Promise((resolve, reject) => setTimeout(resolve, 2000)).then(() =>{
+    console.log("Timeout Finished!")
+}).catch((err) => {
+    console.log("err")
+})
+
 
