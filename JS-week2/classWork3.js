@@ -11,81 +11,75 @@
 // fs.readFile("a.txt", "utf-8", print);
 
 
-// // CASE 1: ASYNC PROMISED READFILE
+
+// PROMISED READFILE AND SETTIMEOUT
+
+// // // CASE 1: .THEN READFILE
+// const fs = require("fs"); 
+
+// const myPromise = new Promise((resolve, reject) => {
+//     fs.readFile("a.txt", "utf-8", (err, data) => {
+//         if (err){
+//             reject(err);
+//         }
+//         else
+//             resolve(data);
+//     });
+// })
+
+// myPromise.then((data) => {
+//     console.log(data);
+// }).catch((err) =>{
+//     console.log(err);
+// })
+    
 
 
+// // CASE 2: ASYNC AWAIT READFILE
 // const fs = require("fs").promises;
 
 // async function read(){
 //     const data = await fs.readFile("a.txt", "utf-8");
-
 //     console.log(data);
 // }
+// read(); 
 
-// read();
+// // CASE 3: PROMISED .THEN SETTIMEOUT
 
-// // CASE 2: .then PROMISED READFILE
-// const fs = require("fs");
-
-// const myPromise = new Promise((resolve) =>{
-//     const data = fs.readFile("a.txt", "utf-8", (err, data) => {
-//         resolve(data);
-//     });
+// new Promise((resolve, reject) => {
+//     setTimeout(resolve, 2000);
+// }).then(() => {
+//     console.log("Operation execution after 2 seconds")
 // })
 
-// myPromise.then((data)=>{
-//     console.log(data);
-// })
+// CASE 4: PROMISED ASYC AWAIT SETTIMEOUT
 
+// // setTimeout function without generic function
 
-// // CASE 3: ASYNC PROMISED READFILE WITH ERROR
-
-
-// const fs = require("fs").promises;
-
-// async function read(){
-//     try{
-//         const data = await fs.readFile("a.txt", "utf-8");
-//         console.log("here")
-
-//         console.log(data);
-//     }
-//     catch(err){
-//         console.log("err, ${err}")
-//     }
+// async function timeout(){
+//     await new Promise(resolve => setTimeout(resolve, 2000));
+//     console.log("Operation after 2 seconds");
 // }
 
-// read();
+// timeout();
 
-// // CASE 4: .then PROMISED READFILE WITH ERROR
-// const { rejects } = require("assert");
-// const fs = require("fs");
+// // // setTimeout function with generic function 
 
-// const myPromise = new Promise((resolve, reject) =>{
-//     const data = fs.readFile("a.txt", "utf-8", (err, data) => {
-//         if(err){
-//             reject(err);
-//         }
-//         else resolve(data);
-//     });
-// })
+// async function timeout(duration, task){
+//     await new Promise(resolve => setTimeout(resolve, duration));
 
-// myPromise.then((data)=>{
-//     console.log(data);
+//     task();
 
-// }).catch((err) => {
-//     console.log("err", err);
-// });
+// }
 
+// function apiRequest (){
+//     console.log("Api request after 1 second");
+// }
 
-// PROMISED SETTIMEOUT
+// function dataProcessing(){
+//     console.log("Data processing after 1.5 seconds");
+// }
 
-const myPromise = new Promise(resolve =>setTimeout(resolve, 2000)); 
-
-myPromise.then(print)
-
-function print (){
-    console.log("print after 2 seconds")
-}
-
-console.log("Third line printing")
+// timeout(1000, apiRequest);
+// timeout(1500, dataProcessing);
+// timeout(2000, () => console.log("Random function execution after 2 seconds"));
