@@ -83,3 +83,42 @@
 // timeout(1000, apiRequest);
 // timeout(1500, dataProcessing);
 // timeout(2000, () => console.log("Random function execution after 2 seconds"));
+
+
+// PROMISED FETCH
+
+// // PARSE EXAMPLE
+// const jsonString = '{"name": "Alice", "age": 25}';
+
+// const obj = JSON.parse(jsonString);
+
+// console.log(obj);
+
+// FETCH JSON placeholder api
+
+// fetch('https://jsonplaceholder.typicode.com/posts/1')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.log('Error:', error));
+
+async function toFetch(){
+    try{
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+    
+        console.log(response);
+        // Await the JSON parsing
+        const data = await response.json();
+
+        console.log(data);
+    } catch (error){
+        console.error("There has been an error", error)
+    }
+    
+}
+toFetch();
+
+
+
+
+
+

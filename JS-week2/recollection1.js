@@ -371,9 +371,31 @@
 // timeout(1500, dataProcessing);
 // timeout(2000, () => console.log("Random function execution after 2 seconds"));
 
-const data = new Date('2024-08-26');
+// // PROMISED .THEN FETCH
 
-console.log(data);
+// fetch('https://jsonplaceholder.typicode.com/posts/1')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.error(err))
+
+// // PROMISED ASYNC AWAIT FETCH
+
+// async function fetchData(){
+//     const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+
+//     const data = await response.json();
+
+//     // console.log(data);
+// }
+// fetchData();
+
+
+
+    
+
+
+
+
 
 
 
